@@ -12,6 +12,7 @@ let snake = [
     }
 ]
 let direction = 'right'
+let gradientNumberCollor = 100000
 
 function createBG() {
     context.fillStyle = 'lightgreen'
@@ -20,7 +21,7 @@ function createBG() {
 
 function createSnake() {
     for (let i = 0; i < snake.length; i++) {
-        context.fillStyle = 'green'
+        context.fillStyle = `#${gradientNumberCollor}`
         context.fillRect(snake[i].x, snake[i].y, box, box)
     }
 }
@@ -75,6 +76,7 @@ function startGame() {
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box,
         food.y = Math.floor(Math.random() * 15 + 1) * box
+        gradientNumberCollor += 500
     }
 
     let newHead = {
